@@ -157,12 +157,13 @@ INSTALLED_APPS = (
 #   'django.contrib.admindocs',
     'frontadmin',
 #   'seoutils',
+    'website', 
+
     'mptt', 
     'Kraggne', 
     'Kraggne.contrib.django_generic_flatblocks',
     'Kraggne.contrib.gblocks',
 
-    'website', 
 )
 
 # A sample logging configuration. The only tangible logging
