@@ -3,11 +3,9 @@
 Nom de la page:
 {% block page.title %}{% endblock %}
 
-<hr/>Breadcrumb:
-{% breadcrumb %}
+{% include "blocks/breadcrumb.inc.html" %}
 
-<hr/>Menu:
-{% menu level_min=-1 level_nb=3 include_self=False %}
+{% include "blocks/menu.inc.html" %}
 
 <hr/>get block by slug:
 {% gblock "test-block" for "gblocks.Text" %}
