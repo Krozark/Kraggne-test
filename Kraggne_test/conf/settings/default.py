@@ -161,7 +161,7 @@ INSTALLED_APPS = (
 
     'mptt', 
     'Kraggne', 
-    'Kraggne.contrib.django_generic_flatblocks',
+    'Kraggne.contrib.flatblocks',
     'Kraggne.contrib.gblocks',
 
 )
