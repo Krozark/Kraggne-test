@@ -1,19 +1,28 @@
+{% extends "bootstrap/base.html" %}
 {% load Kraggne_tags flatblocks %}
 
-Nom de la page:
-{% block page.title %}{% endblock %}
+{% block page.title %}{{page.name}}{% endblock %}
+{% block site.home_url %}/{% endblock %}
+{% block project.menu %}
+{% menu "main" %}
+{% endblock %}
 
-{% include "blocks/breadcrumb.inc.html" %}
+{% block project.body %}
 
-{% include "blocks/menu.inc.html" %}
+<h2>breadcrumb:</h2>
+{% breadcrumb %}
 
-<hr/>get block by slug:
+
+<hr/>
+<h2>get block by slug:</h2>
 {% gblock "test-block" for "gblocks.Text" %}
-with display tag:
+<h2>with display tag:</h2>
 {% display generic_object %}
 
-<hr/>get liste by slug:
+<hr/>
+<h2>get liste by slug:</h2>
 {% glist "test-list" for "auth.user" %}
-with display tag:
+<h2>with display tag:</h2>
 {% display generic_object_list %}
 
+{% endblock %}
