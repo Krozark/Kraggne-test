@@ -4,10 +4,11 @@
 {% block page.title %}{{page.name}}{% endblock %}
 {% block site.home_url %}/{% endblock %}
 {% block project.menu %}
-{% menu "main" level_nb=1 %}
 {% endblock %}
 
 {% block project.body %}
+<h2>Menu:</h2>
+{% menu "main" %}
 test var:
 {{test}}
 <hr/>
