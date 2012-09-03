@@ -1,0 +1,18 @@
+{% extends "bootstrap/base.html" %}
+{% load Kraggne_tags flatblocks %}
+
+{% block page.title %}{{page.name}}{% endblock %}
+{% block site.home_url %}/{% endblock %}
+{% block project.menu %}
+{% endblock %}
+
+{% block project.body %}
+<h2>Menu:</h2>
+{% menu "main" %}
+test var:
+{{test}}
+<hr/>
+test_list var:
+{{test_list}}
+<hr/>
+{% endblock %}
