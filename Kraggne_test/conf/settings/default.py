@@ -163,6 +163,7 @@ INSTALLED_APPS = (
     'Kraggne', 
     'Kraggne.contrib.flatblocks',
     'Kraggne.contrib.gblocks',
+    'inplaceeditform',
 
 )
 

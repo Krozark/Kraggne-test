@@ -4,6 +4,10 @@ from django.contrib import admin
 
 admin.autodiscover()
 
+js_info_dict = {
+        'packages': ('django.conf',),
+    }
+
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^accounts/login/$', 'django.contrib.auth.views.login'),
@@ -11,6 +15,8 @@ urlpatterns = patterns('',
    #(r'^grappelli/', include('grappelli.urls')),
    (r'',            include('website.urls')),
    (r'',            include('Kraggne.urls')),
+   (r'^inplaceeditform/', include('inplaceeditform.urls')),
+   (r'^jsi18n$', 'django.views.i18n.javascript_catalog', js_info_dict),
    #(r'^favicon.ico$', 'django.views.generic.simple.redirect_to', {
    #    'url': '%swebsite/img/favicon.ico' % settings.STATIC_URL}),
 )
