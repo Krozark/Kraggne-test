@@ -1,10 +1,15 @@
 {% extends "bootstrap/base.html" %}
-{% load Kraggne_tags flatblocks %}
+{% load Kraggne_tags flatblocks inplace_edit %}
+
 
 {% block page.title %}{{page.name}}{% endblock %}
 {% block site.home_url %}/{% endblock %}
 {% block project.menu %}
 {% menu level_min=-1 level_nb=1 %}
+{% endblock %}
+
+{% block project.media %}
+{% inplace_media %}
 {% endblock %}
 
 {% block project.body %}
@@ -25,5 +30,11 @@
 {% glist "test-list" for "auth.user" %}
 <h2>with display tag:</h2>
 {% display generic_object_list %}
+
+<hr/>
+<h2>get block by slug:</h2>
+{% gblock 1 for "auth.user" %}
+<h2>with display tag:</h2>
+{% display generic_object %}
 
 {% endblock %}

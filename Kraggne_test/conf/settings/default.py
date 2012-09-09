@@ -158,13 +158,12 @@ INSTALLED_APPS = (
     #'frontadmin',
 #   'seoutils',
     'website', 
-
-    'mptt', 
     'Kraggne_inplaceeditform_adaptator',
     'Kraggne', 
     'Kraggne.contrib.flatblocks',
     'Kraggne.contrib.gblocks',
     'inplaceeditform',
+    'mptt', 
 
 )
 

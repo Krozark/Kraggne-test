@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-{% load inplace_edit %}
-{% inplace_media %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,8 +50,11 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    {% block site.media %}
     <script src="{{STATIC_URL}}website/js/jquery.js"></script>
     <script src="{{STATIC_URL}}website/js/bootstrap.js"></script>
+    {% block project.media %}{% endblock %}
+    {% endblock %}
 
   </body>
 </html>
