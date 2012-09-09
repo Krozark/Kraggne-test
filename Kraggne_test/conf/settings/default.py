@@ -155,11 +155,12 @@ INSTALLED_APPS = (
 #   'grappellifit'
     'django.contrib.admin',
 #   'django.contrib.admindocs',
-    'frontadmin',
+    #'frontadmin',
 #   'seoutils',
     'website', 
 
     'mptt', 
+    'Kraggne_inplaceeditform_adaptator',
     'Kraggne', 
     'Kraggne.contrib.flatblocks',
     'Kraggne.contrib.gblocks',
