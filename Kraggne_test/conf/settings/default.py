@@ -159,6 +159,7 @@ INSTALLED_APPS = (
 #   'seoutils',
     'website', 
     'Kraggne_inplaceeditform_adaptator',
+    'Kraggne.contrib.contentblocks',
     'Kraggne', 
     'Kraggne.contrib.flatblocks',
     'Kraggne.contrib.gblocks',
