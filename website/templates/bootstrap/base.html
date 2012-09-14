@@ -53,8 +53,53 @@
     {% block site.media %}
     <script src="{{STATIC_URL}}Kraggne/js/jquery.js"></script>
     <script src="{{STATIC_URL}}Kraggne/js/bootstrap.js"></script>
+    <!--link href="{{STATIC_URL}}Kraggne/css/all.css" rel="stylesheet"-->
+    <link href="{{STATIC_URL}}contentblocks/css/contentblocks.css" rel="stylesheet">
+
+
+    {% if user.is_authenticated and user.is_staff %}
     <script src="{{STATIC_URL}}Kraggne/js/bootbox.js"></script>
-    <link href="{{STATIC_URL}}Kraggne/css/all.css" rel="stylesheet">
+    <script src="{{STATIC_URL}}contentblocks/js/admin.js"></script>
+    <script src="{{ STATIC_URL }}contentblocks/js/jquery.cookie.js"></script>
+    <script>
+        var django = (function($){
+            var _urls = {}
+            var _conf = {}
+            return {
+                settings: {
+                    'MEDIA_URL':  '{{ MEDIA_URL }}',
+                    'STATIC_URL': '{{ STATIC_URL }}'
+                },
+
+                i18n: function() {
+                    var strs = {};
+                    var get = function(k)    { return _conf[k] }
+                    var set = function(k, v) { return _conf[k] = v }
+                    return arguments.length == 2 
+                    && set(arguments[0], arguments[1]) 
+                    || get(arguments[0])
+                },
+
+                urls: function() {
+                    var get = function(k)    { return _urls[k] }
+                    var set = function(k, v) { return _urls[k] = v }
+                    return arguments.length >= 2 
+                    && set(arguments[0], arguments[1]) 
+                    || get(arguments[0])
+                }
+            }
+        })(jQuery)
+
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if ($.cookie('csrftoken') && (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url)))) {
+                    xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'))
+                }
+            }
+        });
+    </script>
+    {% endif %}
+
     {% block project.media %}{% endblock %}
     {% endblock %}
 
