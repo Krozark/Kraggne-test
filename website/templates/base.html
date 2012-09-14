@@ -1,5 +1,6 @@
 {% extends "bootstrap/base.html" %}
-{% load Kraggne_tags flatblocks inplace_edit %}
+{% load Kraggne_tags flatblocks contentblocks %}
+{# load Kraggne_tags flatblocks inplace_edit #}
 
 
 {% block page.title %}{{page.name}}{% endblock %}
@@ -9,10 +10,11 @@
 {% endblock %}
 
 {% block project.media %}
-{% inplace_media %}
+{# inplace_media #}
 {% endblock %}
 
 {% block project.body %}
+{% containeur "base-test" %}
 <h2>Menu</h2>
 {% menu "main" %}
 
@@ -23,18 +25,10 @@
 <hr/>
 <h2>get block by slug:</h2>
 {% gblock "test-block" for "gblocks.Text" %}
-<h2>with display tag:</h2>
-{% display generic_object %}
-
 <hr/>
 {% glist "test-list" for "auth.user" %}
-<h2>with display tag:</h2>
-{% display generic_object_list %}
-
 <hr/>
 <h2>get block by slug:</h2>
 {% gblock 1 for "auth.user" %}
-<h2>with display tag:</h2>
-{% display generic_object %}
 
 {% endblock %}
