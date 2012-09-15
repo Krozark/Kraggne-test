@@ -16,14 +16,6 @@
     </style>
     <!--link href="{{STATIC_URL}}website/css/bootstrap/bootstrap-responsive.css" rel="stylesheet"-->
 
-    <!-- Le fav and touch icons -->
-    {% comment %}
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    {% endcomment %}
   </head>
 
   <body>
@@ -31,11 +23,6 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
           <a class="brand" href="{% block site.home_url %}{% endblock %}">{% block page.title %}{% endblock %}</a>
           {% block project.menu %}{% endblock %}
         </div>
@@ -58,46 +45,7 @@
 
 
     {% if user.is_authenticated and user.is_staff %}
-    <script src="{{STATIC_URL}}Kraggne/js/bootbox.js"></script>
-    <script src="{{STATIC_URL}}contentblocks/js/admin.js"></script>
-    <script src="{{ STATIC_URL }}contentblocks/js/jquery.cookie.js"></script>
-    <script>
-        var django = (function($){
-            var _urls = {}
-            var _conf = {}
-            return {
-                settings: {
-                    'MEDIA_URL':  '{{ MEDIA_URL }}',
-                    'STATIC_URL': '{{ STATIC_URL }}'
-                },
-
-                i18n: function() {
-                    var strs = {};
-                    var get = function(k)    { return _conf[k] }
-                    var set = function(k, v) { return _conf[k] = v }
-                    return arguments.length == 2 
-                    && set(arguments[0], arguments[1]) 
-                    || get(arguments[0])
-                },
-
-                urls: function() {
-                    var get = function(k)    { return _urls[k] }
-                    var set = function(k, v) { return _urls[k] = v }
-                    return arguments.length >= 2 
-                    && set(arguments[0], arguments[1]) 
-                    || get(arguments[0])
-                }
-            }
-        })(jQuery)
-
-        $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
-                if ($.cookie('csrftoken') && (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url)))) {
-                    xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'))
-                }
-            }
-        });
-    </script>
+    {% include "Kraggne/admin.inc.html" %}
     {% endif %}
 
     {% block project.media %}{% endblock %}
