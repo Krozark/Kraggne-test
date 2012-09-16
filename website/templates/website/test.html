@@ -4,10 +4,14 @@
 {% block project.body %}
 <h2>Menu:</h2>
 {% menu "main" %}
-test var:
+user pk : 1 (aver la template var)
 {{test}}
 <hr/>
-test_list var:
+all user (avec la tempate var_list):
 {{test_list}}
 <hr/>
+
+all staff members (avec une autre template var utilisant un custom query):
+{{staff_members_list}}
+</hr>
 {% endblock %}
